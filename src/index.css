@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+  }
+
+
+
+
+.swal2-title{
+    font-size: 24px;
+}
+
+.swal2-input{
+    font-size: 16px;
+    outline: none;
+    border: solid 1px #d4d4d4;
+
+}
+
+.swal2-input:focus{
+    outline: none;
+    border: solid 1px #d4d4d4;
+
+    box-shadow: none;
+}
+.swal2-actions{
+    font-size: 16px;
+
+}
+.swal2-modal{
+    max-width: 400px;
+}
+.swal2-cancel, .swal2-confirm, .swal2-styled{
+    padding: 7px 15px;
+    margin: 0 10px;
+}
+
+.swal2-styled, .swal2-styled.swal2-cancel:focus, .swal2-styled.swal2-default-outline:focus{
+    outline: none;
+    border: solid 1px #d4d4d4;
+
+    box-shadow: none;
+}
