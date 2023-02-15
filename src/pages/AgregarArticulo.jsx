@@ -3,18 +3,11 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import FormArticle from "../components/FormArticle";
 import PreviewCard from "../components/PreviewCard";
-import {
-  collection,
-  getDocs,
-  getDoc,
-  deleteDoc,
-  doc,
-  addDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { getDoc, doc, updateDoc } from "firebase/firestore";
 
 import { db } from "../firebaseConfig/firebase.js";
 import InputSearch from "../components/InputSearch";
+import ViewTable from "../components/ViewTable";
 
 const Toast = Swal.mixin({
   toast: true,
@@ -30,13 +23,11 @@ const Toast = Swal.mixin({
 
 const AgregarArticulo = ({
   addArticle,
-  articles,
-  setArticles,
   deleteProduct,
   getProducts,
   result,
   setSearch,
-  search
+  search,
 }) => {
   const [inputData, setInputData] = useState({
     id: "",
@@ -44,6 +35,27 @@ const AgregarArticulo = ({
     peso: "",
     img: "",
   });
+
+  const modal = async () => {
+    const { value: result } = await Swal.fire({
+      title: "Cantidad",
+      input: "number",
+      inputPlaceholder: "Ingrese cantidad",
+      showCancelButton: true,
+      confirmButtonColor: "#002954",
+      cancelButtonColor: "grey",
+    });
+
+    if (result) {
+      Swal.fire({
+        title: `${result} ${inputData.nombre} son: ${Math.round(
+          result * inputData.peso
+        )} gr.`,
+
+        confirmButtonColor: "#002954",
+      });
+    }
+  };
 
   const [editArticle, setEditArticle] = useState(false);
 
@@ -134,12 +146,11 @@ const AgregarArticulo = ({
         <div className="m-auto flex w-full max-w-4xl items-center justify-between">
           <h1 className="text-xl">
             <Link to="/">
-              <i className="fa-solid fa-arrow-left text-xl hover:scale-105 pr-5"></i>
-            Volver
+              <i className="fa-solid fa-arrow-left pr-5 text-xl hover:scale-105"></i>
+              Volver
             </Link>
           </h1>
-          <InputSearch  setSearch={setSearch}
-              search={search} />
+          <InputSearch setSearch={setSearch} search={search} />
         </div>
       </div>
       <div className="mt-36 flex w-full max-w-lg flex-col items-center justify-between gap-10 px-5 md:flex-row">
@@ -148,45 +159,16 @@ const AgregarArticulo = ({
           setInputData={setInputData}
           addArticle={addArticle}
           editArticle={editArticle}
-          articles={articles}
-          setArticles={setArticles}
-          deleteArticle={deleteArticle}
           update={update}
         />
-        <PreviewCard inputData={inputData} />
+        <PreviewCard inputData={inputData} modal={modal} />
       </div>
 
-      <table className="mt-10 mb-20 w-5/6 max-w-lg overflow-hidden rounded text-left">
-        <thead className="bg-[#002954]  text-white">
-          <tr>
-            <th className="p-2">Nombre</th>
-            <th className="p-2">Peso</th>
-            <th className="flex justify-center p-2">Accion</th>
-          </tr>
-        </thead>
-        <tbody>
-          {result.map((article) => (
-            <tr className="hover:bg-slate-300" key={article.id}>
-              <td className="p-2">{article.nombre}</td>
-              <td className="p-2">{article.peso}</td>
-              <td className="text-center">
-                <button
-                  className="p-1"
-                  onClick={() => getUpdateArticle(article.id)}
-                >
-                  <i className="fa-solid fa-pen-to-square"></i>
-                </button>
-                <button
-                  className="p-1"
-                  onClick={() => deleteArticle(article.id)}
-                >
-                  <i className="fa-solid fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <ViewTable
+        getUpdateArticle={getUpdateArticle}
+        deleteArticle={deleteArticle}
+        result={result}
+      />
     </>
   );
 };

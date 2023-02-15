@@ -2,7 +2,7 @@ import CardContainer from "../components/CardContainer";
 import InputSearch from "../components/InputSearch";
 import Footer from "../components/Footer";
 
-const Inicio = ({ setSearch, search, articles, amount, setAmount, result}) => {
+const Inicio = ({ setSearch, search, amount, setAmount, result}) => {
   return (
     <>
     <div className="h-[70px]  w-full bg-[#002954] text-white  px-5  fixed top-0 z-50">
@@ -12,10 +12,7 @@ const Inicio = ({ setSearch, search, articles, amount, setAmount, result}) => {
       </div>
 
       <CardContainer
-        articles={articles}
-        search={search}
         amount={amount}
-        setAmount={setAmount}
         result={result}
         
       />

@@ -5,9 +5,6 @@ const FormArticle = ({
   setInputData,
   addArticle,
   editArticle,
-  articles,
-  setArticles,
-  deleteArticle,
   update
 }) => {
   const handleSubmit = (e) => {

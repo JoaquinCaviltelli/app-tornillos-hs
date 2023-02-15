@@ -7,7 +7,6 @@ import Inicio from "./pages/Inicio";
 import {
   collection,
   getDocs,
-  getDoc,
   deleteDoc,
   doc,
   addDoc,
@@ -89,8 +88,6 @@ function App() {
             <AgregarArticulo
               addArticle={addArticle}
               deleteProduct={deleteProduct}
-              articles={articles}
-              setArticles={setArticles}
               getProducts={getProducts}
               result={result}
               setSearch={setSearch}

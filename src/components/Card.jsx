@@ -5,10 +5,27 @@ function Card({ article, amount }) {
     const { value: result } = await Swal.fire({
       title: amount ? "Cantidad" : "Gramos",
       input: "number",
-      inputPlaceholder: amount ? "Ingrese cantidad" : "Ingrese gramos",
       showCancelButton: true,
-      confirmButtonColor: "#002954",
-      cancelButtonColor: "grey",
+      customClass: {
+        container: 'containerSwall',
+        popup: '...',
+        header: '...',
+        title: 'titleSwal',
+        closeButton: '...',
+        icon: '...',
+        image: '...',
+        htmlContainer: '...',
+        input: '...',
+        inputLabel: '...',
+        validationMessage: '...',
+        actions: '...',
+        confirmButton: '...',
+        denyButton: '...',
+        cancelButton: '...',
+        loader: '...',
+        footer: '....',
+        timerProgressBar: '....',
+      }
     });
 
     if (result) {
@@ -21,7 +38,6 @@ function Card({ article, amount }) {
               article.nombre
             }`,
 
-        confirmButtonColor: "orange",
       });
     }
   };
@@ -31,13 +47,7 @@ function Card({ article, amount }) {
       onClick={modal}
       className="flex h-48 w-40 cursor-pointer flex-col items-center justify-center gap-5 rounded  bg-white p-5 text-center text-gray-500 hover:scale-105"
     >
-      <img
-        className="w-4/6"
-        src={article.urlImg}
-        alt=""
-        
-       
-      />
+      <img className="w-4/6" src={article.urlImg} alt="" />
       <h4>{article.nombre} </h4>
     </div>
   );
