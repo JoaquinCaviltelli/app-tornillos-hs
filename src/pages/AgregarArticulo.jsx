@@ -111,7 +111,7 @@ const AgregarArticulo = ({
     <>
       <Header setSearch={setSearch} search={search} />
       <BackToHome />
-      <div className="mt-36 flex w-full max-w-2xl flex-col items-center justify-between gap-20 px-5 md:flex-row">
+      <div className="mt-36 flex w-5/6 max-w-2xl flex-row flex-wrap items-center justify-center gap-16 px-5 ">
         <FormArticle
           inputData={inputData}
           setInputData={setInputData}

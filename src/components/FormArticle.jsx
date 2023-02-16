@@ -5,7 +5,7 @@ const FormArticle = ({
   setInputData,
   addArticle,
   editArticle,
-  update
+  update,
 }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,8 +37,7 @@ const FormArticle = ({
     }
 
     if (editArticle) {
-      return update(inputData.id)
-     
+      return update(inputData.id);
     }
 
     Swal.fire({
@@ -60,7 +59,7 @@ const FormArticle = ({
         e.target.reset();
 
         setInputData({
-          id:"",
+          id: "",
           nombre: "",
           peso: "",
           img: "",
@@ -77,7 +76,7 @@ const FormArticle = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex grow flex-col gap-3">
+    <form onSubmit={handleSubmit} className="flex flex-grow flex-col gap-3">
       <input
         className="rounded bg-white py-2 px-5 text-gray-500 outline-none"
         type="text"
@@ -107,7 +106,7 @@ const FormArticle = ({
           editArticle
             ? " mt-3 rounded bg-[#ff8800] py-2 px-5 text-white"
             : " mt-3 rounded bg-[#ffbf00] py-2 px-5 text-white"
-        }`}
+        } `}
         type="submit"
       >
         {editArticle ? "Editar" : "Guardar"}

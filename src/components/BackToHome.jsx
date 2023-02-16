@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 const BackToHome = () => {
-    return (
-        <p className="text-lg fixed top-5 left-5 z-50 text-white">
-            <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-              <i className="fa-solid fa-arrow-left pr-3 text-lg hover:scale-105"></i>
-              Volver
-            </Link>
-          </p>
-    )
-}
+  return (
 
-export default BackToHome
+      <Link className="fixed top-0 left-0 z-50 text-lg p-5 text-white flex" to="/" onClick={() => window.scrollTo(0, 0)}>
+        <span className="material-symbols-outlined">arrow_back_ios</span>
+        Volver
+      </Link>
+
+  );
+};
+
+export default BackToHome;

@@ -4,16 +4,14 @@ import Swal from "sweetalert2";
 const Footer = ({ setAmount, amount, setUser, password, user }) => {
   const navigate = useNavigate();
 
-
-
   const validateUser = async () => {
     if (user) {
       window.scrollTo(0, 0);
-      return navigate("/agregar-articulo")
-    }else{
+      return navigate("/agregar-articulo");
+    } else {
       const { value: passwordKey } = await Swal.fire({
         title: "Ingresar contraseña",
-        input: "password",
+        input: "text",
         inputValidator: (value) => {
           return new Promise((resolve) => {
             if (value == password) {
@@ -30,7 +28,7 @@ const Footer = ({ setAmount, amount, setUser, password, user }) => {
           toast: true,
           position: "top-end",
           showConfirmButton: false,
-          timer: 3000,
+          timer: 2500,
           timerProgressBar: true,
           didOpen: (toast) => {
             toast.addEventListener("mouseenter", Swal.stopTimer);
@@ -40,7 +38,7 @@ const Footer = ({ setAmount, amount, setUser, password, user }) => {
 
         Toast.fire({
           icon: "success",
-          title: "Signed in successfully",
+          title: "Ingreso correctamente",
         });
         setAmount(true);
         setUser(true);
@@ -51,15 +49,19 @@ const Footer = ({ setAmount, amount, setUser, password, user }) => {
   };
 
   return (
-    <footer className="fixed bottom-0 left-0 w-full bg-[#666666] px-5 py-2 text-white">
-      <div className="m-auto flex max-w-4xl px-2 justify-between">
-        <button onClick={validateUser}>
-          <i className="fa-sharp fa-solid fa-circle-plus mr-4"></i>
-          Agregar / Editar
+    <footer className="fixed bottom-0 left-0 w-full bg-[#666666] px-5 py-2 text-white ">
+      <div className="m-auto flex max-w-4xl items-center justify-between px-2 text-[14px] font-normal">
+        <button className="flex gap-2 items-center" onClick={validateUser}>
+          <span className="material-symbols-outlined ">add_to_photos</span>
+          Agregar
         </button>
 
-        <button onClick={() => setAmount(!amount)}>
+        <button className="flex gap-2 items-center" onClick={() => setAmount(!amount)}>
           {amount ? "Cantidad" : "Gramos"}
+
+          <span className="material-symbols-outlined">
+            {amount ? "toggle_on" : "toggle_off"}
+          </span>
         </button>
       </div>
     </footer>
