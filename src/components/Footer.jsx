@@ -8,6 +8,7 @@ const Footer = ({ setAmount, amount, setUser, password, user }) => {
 
   const validateUser = async () => {
     if (user) {
+      window.scrollTo(0, 0);
       return navigate("/agregar-articulo")
     }else{
       const { value: passwordKey } = await Swal.fire({
@@ -44,13 +45,14 @@ const Footer = ({ setAmount, amount, setUser, password, user }) => {
         setAmount(true);
         setUser(true);
         navigate("/agregar-articulo");
+        window.scrollTo(0, 0);
       }
     }
   };
 
   return (
     <footer className="fixed bottom-0 left-0 w-full bg-[#666666] px-5 py-2 text-white">
-      <div className="m-auto flex max-w-4xl justify-between">
+      <div className="m-auto flex max-w-4xl px-2 justify-between">
         <button onClick={validateUser}>
           <i className="fa-sharp fa-solid fa-circle-plus mr-4"></i>
           Agregar / Editar

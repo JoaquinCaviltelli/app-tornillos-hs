@@ -14,48 +14,42 @@ import {
 import { db } from "./firebaseConfig/firebase.js";
 
 function App() {
+
   const [articles, setArticles] = useState([]);
 
   const [user, setUser] = useState(false);
 
-const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const password = 1234
+  const password = 1234;
 
   useEffect(() => {
     if (!user) {
-      navigate("/")
+      navigate("/");
     }
   }, [user]);
-
-  //firebase
 
   const productsCollection = collection(db, "articulos");
 
   const getProducts = async () => {
     const data = await getDocs(productsCollection);
-    //console.log(data.docs)
     setArticles(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-   
- 
   };
 
   useEffect(() => {
     getProducts();
-    // eslint-disable-next-line
   }, []);
 
-  //
-
   const [amount, setAmount] = useState(true);
-
   const [search, setSearch] = useState("");
 
-  let result = []
-  if(!search) {
-      result = articles
-  }else {
-      result = articles.filter((article) => article.nombre.toLowerCase().includes(search.toLowerCase()))
+  let result = [];
+  if (!search) {
+    result = articles;
+  } else {
+    result = articles.filter((article) =>
+      article.nombre.toLowerCase().includes(search.toLowerCase())
+    );
   }
 
   const addArticle = async (newArticle) => {
@@ -65,7 +59,6 @@ const navigate = useNavigate()
       urlImg: newArticle.img,
     });
     getProducts();
-    
   };
 
   const deleteProduct = async (id) => {
@@ -77,7 +70,7 @@ const navigate = useNavigate()
   return (
     <div
       className={`${
-        amount ? "bg-[#eeeeee]" : "bg-[#2a3845]"
+        amount ? "bg-[#eeeeee]" : "bg-[#555555]"
       } flex min-h-screen flex-col items-center gap-10 transition-all`}
     >
       <Routes>

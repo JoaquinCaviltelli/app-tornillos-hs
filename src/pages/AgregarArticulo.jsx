@@ -1,25 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import FormArticle from "../components/FormArticle";
 import PreviewCard from "../components/PreviewCard";
 import { getDoc, doc, updateDoc } from "firebase/firestore";
-
 import { db } from "../firebaseConfig/firebase.js";
-import InputSearch from "../components/InputSearch";
 import ViewTable from "../components/ViewTable";
-
-const Toast = Swal.mixin({
-  toast: true,
-  position: "top-end",
-  showConfirmButton: false,
-  timer: 2500,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.addEventListener("mouseenter", Swal.stopTimer);
-    toast.addEventListener("mouseleave", Swal.resumeTimer);
-  },
-});
+import Toast from "../components/modalToast";
+import Header from "../components/Header";
+import BackToHome from "../components/BackToHome";
 
 const AgregarArticulo = ({
   addArticle,
@@ -35,27 +23,6 @@ const AgregarArticulo = ({
     peso: "",
     img: "",
   });
-
-  const modal = async () => {
-    const { value: result } = await Swal.fire({
-      title: "Cantidad",
-      input: "number",
-      inputPlaceholder: "Ingrese cantidad",
-      showCancelButton: true,
-      confirmButtonColor: "#002954",
-      cancelButtonColor: "grey",
-    });
-
-    if (result) {
-      Swal.fire({
-        title: `${result} ${inputData.nombre} son: ${Math.round(
-          result * inputData.peso
-        )} gr.`,
-
-        confirmButtonColor: "#002954",
-      });
-    }
-  };
 
   const [editArticle, setEditArticle] = useState(false);
 
@@ -142,17 +109,8 @@ const AgregarArticulo = ({
 
   return (
     <>
-      <div className=" fixed top-0 z-50 flex h-[70px] w-full bg-[#ffbf00] px-5 text-white">
-        <div className="m-auto flex w-full max-w-2xl items-center justify-end">
-          <h4 className="text-lg absolute top-5 left-5">
-            <Link to="/">
-              <i className="fa-solid fa-arrow-left pr-3 text-lg hover:scale-105"></i>
-              Volver
-            </Link>
-          </h4>
-          <InputSearch setSearch={setSearch} search={search} />
-        </div>
-      </div>
+      <Header setSearch={setSearch} search={search} />
+      <BackToHome />
       <div className="mt-36 flex w-full max-w-2xl flex-col items-center justify-between gap-20 px-5 md:flex-row">
         <FormArticle
           inputData={inputData}
@@ -161,7 +119,7 @@ const AgregarArticulo = ({
           editArticle={editArticle}
           update={update}
         />
-        <PreviewCard inputData={inputData} modal={modal} />
+        <PreviewCard inputData={inputData} />
       </div>
 
       <ViewTable
