@@ -104,7 +104,7 @@ const FormArticle = ({
       <button
         className={`${
           editArticle
-            ? " mt-3 rounded bg-[#ff8800] py-2 px-5 text-white"
+            ? " mt-3 rounded bg-[#666666] py-2 px-5 text-white"
             : " mt-3 rounded bg-[#ffbf00] py-2 px-5 text-white"
         } `}
         type="submit"

@@ -7,6 +7,7 @@ const Footer = ({ setAmount, amount, setUser, password, user }) => {
   const validateUser = async () => {
     if (user) {
       window.scrollTo(0, 0);
+      setAmount(true);
       return navigate("/agregar-articulo");
     } else {
       const { value: passwordKey } = await Swal.fire({
@@ -51,12 +52,18 @@ const Footer = ({ setAmount, amount, setUser, password, user }) => {
   return (
     <footer className="fixed bottom-0 left-0 w-full bg-[#666666] px-5 py-2 text-white ">
       <div className="m-auto flex max-w-4xl items-center justify-between px-2 text-[14px] font-normal">
-        <button className="flex gap-2 items-center" onClick={validateUser}>
+        <button
+          className="flex items-center gap-2 outline-none"
+          onClick={validateUser}
+        >
           <span className="material-symbols-outlined ">add_to_photos</span>
           Agregar
         </button>
 
-        <button className="flex gap-2 items-center" onClick={() => setAmount(!amount)}>
+        <button
+          className="flex items-center gap-2 outline-none"
+          onClick={() => setAmount(!amount)}
+        >
           {amount ? "Cantidad" : "Gramos"}
 
           <span className="material-symbols-outlined">
