@@ -142,18 +142,18 @@ const AgregarArticulo = ({
 
   return (
     <>
-      <div className=" fixed top-0 z-50 flex h-[70px] w-full bg-[#002954] px-5 text-white">
-        <div className="m-auto flex w-full max-w-4xl items-center justify-between">
-          <h1 className="text-xl">
+      <div className=" fixed top-0 z-50 flex h-[70px] w-full bg-[#ffbf00] px-5 text-white">
+        <div className="m-auto flex w-full max-w-2xl items-center justify-end">
+          <h4 className="text-lg absolute top-5 left-5">
             <Link to="/">
-              <i className="fa-solid fa-arrow-left pr-5 text-xl hover:scale-105"></i>
+              <i className="fa-solid fa-arrow-left pr-3 text-lg hover:scale-105"></i>
               Volver
             </Link>
-          </h1>
+          </h4>
           <InputSearch setSearch={setSearch} search={search} />
         </div>
       </div>
-      <div className="mt-36 flex w-full max-w-lg flex-col items-center justify-between gap-10 px-5 md:flex-row">
+      <div className="mt-36 flex w-full max-w-2xl flex-col items-center justify-between gap-20 px-5 md:flex-row">
         <FormArticle
           inputData={inputData}
           setInputData={setInputData}

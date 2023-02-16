@@ -1,7 +1,7 @@
 const ViewTable = ({result, getUpdateArticle, deleteArticle}) => {
     return (
-        <table className="mt-10 mb-20 w-5/6 max-w-lg overflow-hidden rounded text-left">
-        <thead className="bg-[#002954]  text-white">
+      <table className="mt-10 mb-20 w-5/6 max-w-2xl overflow-hidden rounded text-left">
+        <thead className="bg-[#ffbf00]  text-white">
           <tr>
             <th className="p-2">Nombre</th>
             <th className="p-2">Peso</th>
@@ -31,6 +31,6 @@ const ViewTable = ({result, getUpdateArticle, deleteArticle}) => {
           ))}
         </tbody>
       </table>
-    )
+    );
 }
 export default ViewTable

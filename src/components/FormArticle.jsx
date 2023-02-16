@@ -77,7 +77,7 @@ const FormArticle = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
+    <form onSubmit={handleSubmit} className="flex grow flex-col gap-3">
       <input
         className="rounded bg-white py-2 px-5 text-gray-500 outline-none"
         type="text"
@@ -103,7 +103,11 @@ const FormArticle = ({
         value={inputData.img}
       />
       <button
-        className={`${editArticle ? " rounded bg-[#666666] py-2 px-5 text-white mt-3" : " rounded bg-[#002954] py-2 px-5 text-white mt-3"}`}
+        className={`${
+          editArticle
+            ? " mt-3 rounded bg-[#ff8800] py-2 px-5 text-white"
+            : " mt-3 rounded bg-[#ffbf00] py-2 px-5 text-white"
+        }`}
         type="submit"
       >
         {editArticle ? "Editar" : "Guardar"}

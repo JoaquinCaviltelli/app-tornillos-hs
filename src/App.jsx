@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import AgregarArticulo from "./pages/AgregarArticulo";
 import Inicio from "./pages/Inicio";
@@ -15,6 +15,18 @@ import { db } from "./firebaseConfig/firebase.js";
 
 function App() {
   const [articles, setArticles] = useState([]);
+
+  const [user, setUser] = useState(false);
+
+const navigate = useNavigate()
+
+  const password = 1234
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/")
+    }
+  }, [user]);
 
   //firebase
 
@@ -79,6 +91,9 @@ function App() {
               amount={amount}
               setAmount={setAmount}
               result={result}
+              setUser={setUser}
+              password={password}
+              user={user}
             />
           }
         />

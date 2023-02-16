@@ -30,7 +30,7 @@ function Card({ article, amount }) {
 
     if (result) {
       Swal.fire({
-        title: amount
+        text: amount
           ? `${result} ${article.nombre} son: ${Math.round(
               result * article.peso
             )} gr.`

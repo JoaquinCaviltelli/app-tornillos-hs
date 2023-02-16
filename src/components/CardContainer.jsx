@@ -2,7 +2,7 @@ import Card from "./Card";
 
 const CardContainer = ({ amount, result }) => {
   return (
-    <div className="flex w-full max-w-4xl flex-wrap justify-center gap-5 py-32 px-4">
+    <div className="flex w-full max-w-4xl flex-wrap justify-center gap-5 py-32 px-5">
       {result.map((article) => (
         <Card
           key={article.id}
