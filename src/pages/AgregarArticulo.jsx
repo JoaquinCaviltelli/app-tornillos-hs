@@ -46,10 +46,7 @@ const AgregarArticulo = ({
   const update = async (id) => {
     Swal.fire({
       title: "Seguro queres editarlo?",
-      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#002954",
-      cancelButtonColor: "grey",
       confirmButtonText: "Si",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -83,10 +80,7 @@ const AgregarArticulo = ({
   const deleteArticle = (id) => {
     Swal.fire({
       title: "Seguro queres eliminarlo?",
-      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#002954",
-      cancelButtonColor: "grey",
       confirmButtonText: "Si",
     }).then((result) => {
       if (result.isConfirmed) {

@@ -8,6 +8,10 @@ html {
   
 }
 
+button {
+  outline: none !important;
+}
+
 ::-webkit-scrollbar {
     width: 8px;     /* Tamaño del scroll en vertical */
     height: 8px;    /* Tamaño del scroll en horizontal */
@@ -18,7 +22,7 @@ html {
   font-size: 24px;
 }
 
-/*  
+  
 :root {
   --colorA: #fad419;
   --colorB: #002954;
@@ -35,17 +39,23 @@ html {
   color: var(--colorG);
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
-  margin: 20px auto 10px;
+  margin: 0 auto 10px;
   border-radius: 5px;
 }
 .swal2-container.swal2-center{
     padding: 0;
 }
 
+.swal2-container.swal2-center>.swal2-popup{
+  padding: 20px;
+  text-align: center;
+  max-width: 350px;
+}
+
 .swal2-show {
   padding: 20px;
   text-align: center;
-  max-width: 300px;
+  max-width: 350px;
 }
 
 .swal2-input:focus {
@@ -63,10 +73,12 @@ html {
 }
 
 .swal2-title {
-  font-size: 20px;
+  font-size: 24px;
   font-family: "Montserrat", sans-serif;
   color: var(--colorG);
   font-weight: 500;
+  padding: 0;
+  margin-bottom: 10px;
 }
 
 .swal2-text {
@@ -76,16 +88,26 @@ html {
   font-weight: 500;
 }
 
-.swal2-styled.swal2-cancel,
+
 .swal2-styled.swal2-confirm {
   background-color: var(--colorN);
   outline: none;
-  padding: 5px 10px;
+  padding: 5px 15px;
+}
+.swal2-styled.swal2-cancel{
+  background-color: var(--colorG);
+  outline: none;
+  padding: 5px 15px;
 }
 
-.swal2-styled.swal2-cancel:not([disabled]):hover,
+
+
+
 .swal2-styled.swal2-confirm:not([disabled]):hover {
   background-color: orange;
+}
+.swal2-styled.swal2-cancel:not([disabled]):hover{
+  background: #555555;
 }
 
 .swal2-styled.swal2-cancel:active,
@@ -110,4 +132,4 @@ html {
 .swal2-styled.swal2-confirm::-moz-focus-inner {
   border: 0;
 }
- */
+

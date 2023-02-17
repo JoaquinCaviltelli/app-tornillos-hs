@@ -5,6 +5,7 @@ const modal = async (amount, article) => {
       title: amount ? "Cantidad" : "Gramos",
       input: "number",
       showCancelButton: true,
+    
     });
 
     if (result) {
