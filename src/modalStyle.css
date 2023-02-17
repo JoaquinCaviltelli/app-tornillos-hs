@@ -10,6 +10,9 @@
     --colorG: #666666;
     --colorN: #f2b600;
   }
+  .swal2-validation-message{
+margin: 0 !important;
+  }
   
   .swal2-input {
     border: solid 1px #ddd !important;
