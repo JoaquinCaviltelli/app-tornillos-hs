@@ -39,7 +39,10 @@ const AgregarArticulo = ({
         img: product.data().urlImg,
       });
     } else {
-      console.log("El producto no existe");
+      Toast.fire({
+        icon: "error",
+        title: "El articulo no existe",
+      });
     }
   };
 
@@ -105,7 +108,7 @@ const AgregarArticulo = ({
     <>
       <Header setSearch={setSearch} search={search} />
       <BackToHome />
-      <div className="mt-36 flex w-5/6 max-w-2xl flex-row flex-wrap items-center justify-center gap-16 px-5 ">
+      <div className="mt-32 flex w-5/6 max-w-2xl flex-row flex-wrap items-center justify-center gap-16 px-5 ">
         <FormArticle
           inputData={inputData}
           setInputData={setInputData}

@@ -14,7 +14,6 @@ import {
 import { db } from "./firebaseConfig/firebase.js";
 
 function App() {
-
   const [articles, setArticles] = useState([]);
 
   const [user, setUser] = useState(false);

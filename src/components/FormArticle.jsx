@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import Toast from "../components/modalToast";
 
 const FormArticle = ({
   inputData,
@@ -7,29 +8,19 @@ const FormArticle = ({
   editArticle,
   update,
 }) => {
+  const { id, nombre, peso, img } = inputData;
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 2500,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener("mouseenter", Swal.stopTimer);
-        toast.addEventListener("mouseleave", Swal.resumeTimer);
-      },
-    });
-
-    if (!inputData.nombre.trim()) {
+    if (!nombre.trim()) {
       return Toast.fire({
         icon: "error",
         title: "Debe completar el nombre",
       });
     }
 
-    if (!inputData.peso) {
+    if (!peso) {
       return Toast.fire({
         icon: "error",
         title: "Debe completar el peso",
@@ -37,15 +28,13 @@ const FormArticle = ({
     }
 
     if (editArticle) {
-      return update(inputData.id);
+      return update(id);
     }
 
     Swal.fire({
       title: "Seguro queres guardarlo?",
       icon: "question",
       showCancelButton: true,
-      confirmButtonColor: "#002954",
-      cancelButtonColor: "grey",
       confirmButtonText: "Si",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -83,7 +72,7 @@ const FormArticle = ({
         placeholder="Nombre"
         name="nombre"
         onChange={handleChange}
-        value={inputData.nombre}
+        value={nombre}
       />
       <input
         className="rounded bg-white py-2 px-5 text-gray-500 outline-none"
@@ -91,7 +80,7 @@ const FormArticle = ({
         placeholder="Peso por unidad"
         name="peso"
         onChange={handleChange}
-        value={inputData.peso}
+        value={peso}
       />
       <input
         className="rounded bg-white py-2 px-5 text-gray-500 outline-none"
@@ -99,7 +88,7 @@ const FormArticle = ({
         placeholder="Url Imagen"
         name="img"
         onChange={handleChange}
-        value={inputData.img}
+        value={img}
       />
       <button
         className={`${

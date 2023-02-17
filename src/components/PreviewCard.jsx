@@ -1,10 +1,6 @@
 import modal from "./modal.js";
 
 const PreviewCard = ({ inputData }) => {
-
-
-
-
   return (
     <div
       onClick={() => modal(true, inputData)}

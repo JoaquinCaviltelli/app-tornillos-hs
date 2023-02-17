@@ -1,122 +1,116 @@
+.titleSwal {
+  font-size: 24px !important;
+}
 
-.titleSwal{
-    font-size: 24px !important;
-  }
-  
-    
-  :root {
-    --colorA: #fad419;
-    --colorB: #002954;
-    --colorG: #666666;
-    --colorN: #f2b600;
-  }
-  .swal2-validation-message{
-margin: 0 !important;
-  }
-  
-  .swal2-input {
-    border: solid 1px #ddd !important;
-    font-size: 15px !important;
-    width: 100% !important;
-    transition: border-color 0.2s !important;
-    text-align: center !important;
-    color: var(--colorG) !important;
-    font-weight: 600 !important;
-    font-family: "Montserrat", sans-serif !important;
-    margin: 0 auto 10px !important;
-    border-radius: 5px !important;
-  }
-  .swal2-container.swal2-center{
-      padding: 0 !important;
-  }
-  
-  .swal2-container.swal2-center>.swal2-popup{
-    padding: 20px !important;
-    text-align: center !important;
-    max-width: 350px !important;
-  }
-  
-  .swal2-show {
-    padding: 20px !important;
-    text-align: center !important;
-    max-width: 350px !important;
-  }
-  
-  .swal2-input:focus {
-    outline: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    border: solid 1px #ddd !important;
-  }
-  .swal2-actions {
-    margin: 0 !important;
-    place-self: end !important;
-  }
-  
-  .swal2-modal {
-  }
-  
-  .swal2-title {
-    font-size: 24px !important;
-    font-family: "Montserrat", sans-serif !important;
-    color: var(--colorG) !important;
-    font-weight: 500 !important;
-    padding: 0 !important;
-    margin-bottom: 10px !important;
-  }
-  
-  .swal2-text {
-    font-size: 16px !important;
-    font-family: "Montserrat", sans-serif !important;
-    color: var(--colorG) !important;
-    font-weight: 500 !important;
-  }
-  
-  
-  .swal2-styled.swal2-confirm {
-    background-color: var(--colorN) !important;
-    outline: none !important;
-    padding: 5px 15px !important;
-  }
-  .swal2-styled.swal2-cancel{
-    background-color: var(--colorG) !important;
-    outline: none !important;
-    padding: 5px 15px !important;
-  }
-  
-  
-  
-  
-  .swal2-styled.swal2-confirm:not([disabled]):hover {
-    background-color: orange !important;
-  }
-  .swal2-styled.swal2-cancel:not([disabled]):hover{
-    background: #555555 !important;
-  }
-  
-  .swal2-styled.swal2-cancel:active,
-  .swal2-styled.swal2-confirm:active {
-    background-color: orange !important;
-    outline: none !important;
-  }
-  
-  .swal2-styled.swal2-cancel:focus,
-  .swal2-styled.swal2-confirm:focus {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-  
-  .swal2-styled.swal2-cancel[disabled],
-  .swal2-styled.swal2-confirm[disabled] {
-    opacity: 0.5 !important;
-    cursor: default !important;
-  }
-  
-  .swal2-styled.swal2-cancel::-moz-focus-inner,
-  .swal2-styled.swal2-confirm::-moz-focus-inner {
-    border: 0 !important;
-  }
-  
-  .swal2-popup.swal2-toast .swal2-title{
-    font-size: 16px !important;
-  }
+:root {
+  --colorA: #fad419;
+  --colorB: #002954;
+  --colorG: #666666;
+  --colorN: #f2b600;
+}
+.swal2-validation-message {
+  margin: 0 !important;
+}
+
+.swal2-input {
+  border: solid 1px #ddd !important;
+  font-size: 15px !important;
+  width: 100% !important;
+  transition: border-color 0.2s !important;
+  text-align: center !important;
+  color: var(--colorG) !important;
+  font-weight: 600 !important;
+  font-family: "Montserrat", sans-serif !important;
+  margin: 0 auto 10px !important;
+  border-radius: 5px !important;
+}
+.swal2-container.swal2-center {
+  padding: 0 !important;
+}
+
+.swal2-container.swal2-center > .swal2-popup {
+  padding: 20px !important;
+  text-align: center !important;
+  max-width: 350px !important;
+}
+
+.swal2-show {
+  padding: 20px !important;
+  text-align: center !important;
+  max-width: 350px !important;
+}
+
+.swal2-input:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border: solid 1px #ddd !important;
+}
+.swal2-actions {
+  margin: 0 !important;
+  place-self: end !important;
+}
+
+.swal2-modal {
+}
+
+.swal2-title {
+  font-size: 24px !important;
+  font-family: "Montserrat", sans-serif !important;
+  color: var(--colorG) !important;
+  font-weight: 500 !important;
+  padding: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.swal2-text {
+  font-size: 16px !important;
+  font-family: "Montserrat", sans-serif !important;
+  color: var(--colorG) !important;
+  font-weight: 500 !important;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: var(--colorN) !important;
+  outline: none !important;
+  padding: 5px 15px !important;
+}
+.swal2-styled.swal2-cancel {
+  background-color: var(--colorG) !important;
+  outline: none !important;
+  padding: 5px 15px !important;
+}
+
+.swal2-styled.swal2-confirm:not([disabled]):hover {
+  background-color: orange !important;
+}
+.swal2-styled.swal2-cancel:not([disabled]):hover {
+  background: #555555 !important;
+}
+
+.swal2-styled.swal2-cancel:active,
+.swal2-styled.swal2-confirm:active {
+  background-color: orange !important;
+  outline: none !important;
+}
+
+.swal2-styled.swal2-cancel:focus,
+.swal2-styled.swal2-confirm:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.swal2-styled.swal2-cancel[disabled],
+.swal2-styled.swal2-confirm[disabled] {
+  opacity: 0.5 !important;
+  cursor: default !important;
+}
+
+.swal2-styled.swal2-cancel::-moz-focus-inner,
+.swal2-styled.swal2-confirm::-moz-focus-inner {
+  border: 0 !important;
+}
+
+.swal2-popup.swal2-toast .swal2-title {
+  font-size: 16px !important;
+}
