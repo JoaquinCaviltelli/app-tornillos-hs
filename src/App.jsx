@@ -32,7 +32,23 @@ function App() {
 
   const getProducts = async () => {
     const data = await getDocs(productsCollection);
-    setArticles(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    // setArticles(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    const art = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+
+    art.sort((a, b) => {
+      const nameA = a.nombre.toLowerCase();
+      const nameB = b.nombre.toLowerCase();
+
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    setArticles(art);
   };
 
   useEffect(() => {
